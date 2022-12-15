@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TodoItem from './TodoItem';
 import { deleteTodo, toggleDone } from '../redux/modules/todos';
 
 const TodoList = () => {
   const globalTodo = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // todo 삭제하기
   const deleteTodoHandler = (id) => {
@@ -27,13 +27,9 @@ const TodoList = () => {
           .map((todo) => {
             return (
               <div key={todo.id} style={{ border: '1px solid black' }}>
-                <div
-                  onClick={() => {
-                    navigate('/detail');
-                  }}
-                >
-                  상세보기
-                </div>
+                <Link to={`/detail/${todo.id}`}>
+                  <span>상세보기</span>
+                </Link>
                 <h3>{todo.title}</h3>
                 <p>{todo.content}</p>
                 <button
@@ -62,13 +58,9 @@ const TodoList = () => {
             .map((todo) => {
               return (
                 <div key={todo.id} style={{ border: '1px solid black' }}>
-                  <div
-                    onClick={() => {
-                      navigate('/detail');
-                    }}
-                  >
-                    상세보기
-                  </div>
+                  <Link to={`/detail/${todo.id}`}>
+                    <span>상세보기</span>
+                  </Link>
                   <h3>{todo.title}</h3>
                   <p>{todo.content}</p>
                   <button

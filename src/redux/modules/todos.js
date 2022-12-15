@@ -35,15 +35,15 @@ const initialState = {
   todos: [
     {
       id: uuidv4(),
-      title: '건강하기',
-      content: '몸도 마음도',
+      title: '할일1',
+      content: '건강하기',
       isDone: false,
       isActive: true,
     },
     {
       id: uuidv4(),
-      title: '행복하기',
-      content: '긍정적으로 생각하기',
+      title: '할일2',
+      content: '행복하기',
       isDone: true,
       isActive: false,
     },
