@@ -49,13 +49,16 @@ const StGoBack = styled.div`
   height: 30px;
   position: absolute;
   right: 30px;
-  background-color: #005cb2;
-  color: white;
+  background-color: #eeeeee;
   border-radius: 100px;
   text-align: center;
   line-height: 25px;
   font-size: 16px;
   font-weight: 700;
+  &:hover {
+    background-color: #005cb2;
+    color: white;
+  }
 `;
 
 const StId = styled.div`
@@ -65,6 +68,7 @@ const StId = styled.div`
 
 const StIdContent = styled.span`
   font-size: 15px;
+  color: #484848;
 `;
 
 const StDetailTitle = styled.div`
