@@ -1,15 +1,17 @@
-import TodoForm from '../components/TodoForm';
-import TodoList from '../components/TodoList';
-import Header from '../components/Header';
+import TodoForm from '../components/feature/TodoForm';
+import TodoList from '../components/feature/TodoList';
+import Header from '../components/ui/Header';
+import Layout from '../components/ui/Layout';
+
 import '../App.css';
 
 function Home() {
   return (
-    <div>
+    <Layout>
       <Header />
       <TodoForm />
       <TodoList />
-    </div>
+    </Layout>
   );
 }
 
