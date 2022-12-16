@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTodo, toggleDone } from '../redux/modules/todos';
 
+// 투두리스트에서 투두 부분만 분리하기 위해 만든 컴포넌트 (리팩토링 중)
 const TodoItem = () => {
   const globalTodo = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ const TodoItem = () => {
   return (
     <div>
       {globalTodo
-        // .filter((todo) => todo.isDone === !todo.isActive)
         .filter((todo) => todo.isDone === true)
         .map((todo) => {
           return (
