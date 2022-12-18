@@ -1,5 +1,5 @@
-import TodoForm from '../components/feature/TodoForm';
-import TodoList from '../components/feature/TodoList';
+import TodoForm from '../components/todoForm/TodoForm';
+import TodoList from '../components/todolist/TodoList';
 import Header from '../components/ui/Header';
 import Layout from '../components/ui/Layout';
 
