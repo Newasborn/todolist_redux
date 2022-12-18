@@ -1,5 +1,5 @@
-import TodoForm from '../components/feature/TodoForm';
-import TodoList from '../components/feature/TodoList';
+import TodoForm from '../components/todoForm/TodoForm';
+import TodoList from '../components/todolist/TodoList';
 import Header from '../components/ui/Header';
 import Layout from '../components/ui/Layout';
 
@@ -10,6 +10,7 @@ function Home() {
     <Layout>
       <Header />
       <TodoForm />
+      {/* TodoList에 isActive값을 다르게 주어, 진행 중과 완료된 영역을 나누어 줌 */}
       <TodoList isActive={true} />
       <TodoList isActive={false} />
     </Layout>

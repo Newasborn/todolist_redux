@@ -1,50 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import TodoItem from './TodoItem';
-
-const TodoList = ({ isActive }) => {
-  const globalTodo = useSelector((state) => state.todos.todos);
-
-  return (
-    <StTodoList>
-      <SectionTitle>{isActive ? 'Working' : 'Done'}</SectionTitle>
-      <StTodoContainer>
-        {globalTodo
-          .filter((item) => item.isDone === !isActive)
-          .map((item) => {
-            return <TodoItem key={item.id} todo={item} isActive={isActive} />;
-          })}
-      </StTodoContainer>
-    </StTodoList>
-  );
-};
-
-export default TodoList;
-
-const StTodoList = styled.div`
-  padding: 20px;
-`;
-
-const SectionTitle = styled.h4`
-  font-size: 26px;
-  margin-bottom: 15px;
-  margin-left: 60px;
-  margin-top: 10px;
-`;
-
-const StTodoContainer = styled.div`
-  margin: 0 auto;
-  max-width: 1100px;
-  min-width: 800px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-bottom: 40px;
-  background-color: white;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
 
 const StTodo = styled.div`
   position: relative;
@@ -104,3 +58,13 @@ const StDeleteBtn = styled.button`
     color: white;
   }
 `;
+
+export {
+  StTodo,
+  DetailTodo,
+  StTodoTitle,
+  StTodoContent,
+  StBtnContainer,
+  StDoneBtn,
+  StDeleteBtn,
+};
