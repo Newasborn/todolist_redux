@@ -10,6 +10,7 @@ function Home() {
     <Layout>
       <Header />
       <TodoForm />
+      {/* TodoList에 isActive값을 다르게 주어, 진행 중과 완료된 영역을 나누어 줌 */}
       <TodoList isActive={true} />
       <TodoList isActive={false} />
     </Layout>

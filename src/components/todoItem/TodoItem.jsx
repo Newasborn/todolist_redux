@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteTodo, toggleDone } from '../../redux/modules/todos';
 import { Link } from 'react-router-dom';
 import {
@@ -12,9 +12,7 @@ import {
   StDeleteBtn,
 } from './styles';
 
-// 투두리스트에서 투두 부분만 분리하기 위해 만든 컴포넌트 (리팩토링 중)
 const TodoItem = ({ todo, isActive }) => {
-  // const globalTodo = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
 
   // todo 삭제하기
@@ -41,6 +39,7 @@ const TodoItem = ({ todo, isActive }) => {
       <StTodoTitle>{todo.title}</StTodoTitle>
       <StTodoContent>{todo.content}</StTodoContent>
       <StBtnContainer>
+        {/* 완료 여부를 완료와 취소로 토글링할 수 있음 */}
         <StDoneBtn
           onClick={() => {
             switchButtonHandler(todo.id);

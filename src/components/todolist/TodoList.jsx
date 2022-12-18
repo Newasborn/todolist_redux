@@ -7,6 +7,7 @@ const TodoList = ({ isActive }) => {
 
   return (
     <StTodoList>
+      {/* Home에서 지정한 isActive props의 값으로 영역의 제목을 다르게 보여줌 */}
       <SectionTitle>{isActive ? 'Working' : 'Done'}</SectionTitle>
       <StTodoContainer>
         {globalTodo
