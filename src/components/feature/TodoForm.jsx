@@ -16,8 +16,14 @@ const TodoForm = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
+    if (title && !content) {
+      return alert('내용을 입력해주세요.');
+    }
+    if (!title && content) {
+      return alert('제목을 입력해주세요.');
+    }
     if (!title || !content) {
-      return alert('제목과 내용 모두 입력해주세요.');
+      return alert('제목과 내용을 입력해주세요.');
     }
 
     const newTodo = {
@@ -47,10 +53,20 @@ const TodoForm = () => {
   return (
     <StForm onSubmit={onSubmitHandler}>
       <StInputContainer>
-        <StFormLabel>제목</StFormLabel>
-        <StInput type='text' value={title} onChange={titleChangeHandler} />
-        <StFormLabel>내용</StFormLabel>
-        <StInput type='text' value={content} onChange={contentChangeHandler} />
+        <StLabeledInput
+          id='title'
+          label='제목'
+          placeholder='제목을 입력해주세요.'
+          value={content}
+          onChange={titleChangeHandler}
+        />
+        <StLabeledInput
+          id='content'
+          label='내용'
+          placeholder='내용을 입력해주세요.'
+          value={content}
+          onChange={contentChangeHandler}
+        />
       </StInputContainer>
       <StFormBtn type='submit'>추가</StFormBtn>
     </StForm>
@@ -74,15 +90,7 @@ const StInputContainer = styled.div`
   align-items: center;
 `;
 
-const StFormLabel = styled.label`
-  width: 60px;
-  font-size: 18px;
-  font-weight: 500;
-  margin-right: 10px;
-  margin-bottom: 8px;
-`;
-
-const StInput = styled.input`
+const StLabeledInput = styled.input`
   width: 700px;
   height: 30px;
   padding: 15px;

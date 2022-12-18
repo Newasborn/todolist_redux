@@ -10,7 +10,13 @@ const TodoList = () => {
 
   // todo 삭제하기
   const deleteTodoHandler = (id) => {
-    dispatch(deleteTodo(id));
+    if (window.confirm('정말 삭제하시겠습니까?')) {
+      {
+        dispatch(deleteTodo(id));
+      }
+    } else {
+      return;
+    }
   };
 
   // todo 완료 상태 변경하기
