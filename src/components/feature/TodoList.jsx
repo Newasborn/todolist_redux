@@ -1,95 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import TodoItem from './TodoItem';
-import { deleteTodo, toggleDone } from '../../redux/modules/todos';
+import TodoItem from './TodoItem';
 
-const TodoList = () => {
+const TodoList = ({ isActive }) => {
   const globalTodo = useSelector((state) => state.todos.todos);
-  const dispatch = useDispatch();
-
-  // todo 삭제하기
-  const deleteTodoHandler = (id) => {
-    if (window.confirm('정말 삭제하시겠습니까?')) {
-      {
-        dispatch(deleteTodo(id));
-      }
-    } else {
-      return;
-    }
-  };
-
-  // todo 완료 상태 변경하기
-  const switchButtonHandler = (id) => {
-    dispatch(toggleDone(id));
-  };
 
   return (
     <StTodoList>
-      {/* 완료 전 todo 리스트 불러오기 */}
-      <SectionTitle>Working</SectionTitle>
+      <SectionTitle>{isActive ? 'Working' : 'Done'}</SectionTitle>
       <StTodoContainer>
         {globalTodo
-          .filter((todo) => todo.isDone === false)
-          .map((todo) => {
-            return (
-              <StTodo key={todo.id}>
-                <Link to={`/${todo.id}`}>
-                  <DetailTodo>...</DetailTodo>
-                </Link>
-                <StTodoTitle>{todo.title}</StTodoTitle>
-                <StTodoContent>{todo.content}</StTodoContent>
-                <StBtnContainer>
-                  <StDoneBtn
-                    onClick={() => {
-                      switchButtonHandler(todo.id);
-                    }}
-                  >
-                    {todo.isDone ? '취소' : '완료'}
-                  </StDoneBtn>
-                  <StDeleteBtn
-                    onClick={() => {
-                      deleteTodoHandler(todo.id);
-                    }}
-                  >
-                    삭제
-                  </StDeleteBtn>
-                </StBtnContainer>
-              </StTodo>
-            );
-          })}
-      </StTodoContainer>
-      {/* 완료된 todo 리스트 불러오기 */}
-      <SectionTitle>Done</SectionTitle>
-      <StTodoContainer>
-        {globalTodo
-          .filter((todo) => todo.isDone === true)
-          .map((todo) => {
-            return (
-              <StTodo key={todo.id}>
-                <Link to={`/${todo.id}`}>
-                  <DetailTodo>...</DetailTodo>
-                </Link>
-                <StTodoTitle>{todo.title}</StTodoTitle>
-                <StTodoContent>{todo.content}</StTodoContent>
-                <StBtnContainer>
-                  <StDoneBtn
-                    onClick={() => {
-                      switchButtonHandler(todo.id);
-                    }}
-                  >
-                    {todo.isDone ? '취소' : '완료'}
-                  </StDoneBtn>
-                  <StDeleteBtn
-                    onClick={() => {
-                      deleteTodoHandler(todo.id);
-                    }}
-                  >
-                    삭제
-                  </StDeleteBtn>
-                </StBtnContainer>
-              </StTodo>
-            );
+          .filter((item) => item.isDone === !isActive)
+          .map((item) => {
+            return <TodoItem key={item.id} todo={item} isActive={isActive} />;
           })}
       </StTodoContainer>
     </StTodoList>

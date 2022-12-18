@@ -38,14 +38,12 @@ const initialState = {
       title: '할일1',
       content: '건강하기',
       isDone: false,
-      isActive: true,
     },
     {
       id: uuidv4(),
       title: '할일2',
       content: '행복하기',
       isDone: true,
-      isActive: false,
     },
   ],
 };

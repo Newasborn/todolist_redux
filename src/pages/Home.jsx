@@ -10,7 +10,8 @@ function Home() {
     <Layout>
       <Header />
       <TodoForm />
-      <TodoList />
+      <TodoList isActive={true} />
+      <TodoList isActive={false} />
     </Layout>
   );
 }
