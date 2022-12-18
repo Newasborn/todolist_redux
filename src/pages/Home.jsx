@@ -1,7 +1,7 @@
 import TodoForm from '../components/todoForm/TodoForm';
 import TodoList from '../components/todolist/TodoList';
-import Header from '../components/ui/Header';
-import Layout from '../components/ui/Layout';
+import Header from '../components/header/Header';
+import Layout from '../components/layout/Layout';
 
 import '../App.css';
 
