@@ -16,12 +16,15 @@ const TodoForm = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
+    // 유효성 체크 : 제목만 입력시
     if (title && !content) {
       return alert('내용을 입력해주세요.');
     }
+    // 유효성 체크 : 내용만 입력시
     if (!title && content) {
       return alert('제목을 입력해주세요.');
     }
+    // 유효성 체크 : 둘다 미입력시
     if (!title || !content) {
       return alert('제목과 내용을 입력해주세요.');
     }
